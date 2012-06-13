@@ -57,7 +57,9 @@ Capybara = {
   },
 
   getComputedStyle: function (index, name) {
-    console.log("Obj: %o, prop: %o", this.nodes[index], window.getComputedStyle(this.nodes[index])[name]);
+    console.log("Obj, prop:");
+    console.log(this.nodes[index]);
+    console.log(window.getComputedStyle(this.nodes[index])[name]);
     return window.getComputedStyle(this.nodes[index])[name];
   },
 
