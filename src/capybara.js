@@ -63,8 +63,8 @@ Capybara = {
     m = window.getComputedStyle(this.nodes[index]);
     console.log(m);
     console.log("Name: |" + name + "|");
-    console.log(m[name]);
-    return window.getComputedStyle(this.nodes[index])[name];
+    console.log(m.getPropertyValue(name));
+    return window.getComputedStyle(this.nodes[index]).getPropertyValue(name);
   },
 
   path: function(index) {
