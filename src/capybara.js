@@ -56,6 +56,10 @@ Capybara = {
     }
   },
 
+  getComputedStyle: function (index, name) {
+    return window.getComputedStyle(this.nodes[index])[name];
+  },
+
   path: function(index) {
     return "/" + this.getXPathNode(this.nodes[index]).join("/");
   },
@@ -113,6 +117,16 @@ Capybara = {
     this.mouseup(index);
     var clickEvent = document.createEvent('MouseEvents');
     clickEvent.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+    this.nodes[index].dispatchEvent(clickEvent);
+  },
+
+  dblclick: function (index) {
+    this.mousedown(index);
+    this.mouseup(index);
+    this.mousedown(index);
+    this.mouseup(index);
+    var clickEvent = document.createEvent('MouseEvents');
+    clickEvent.initMouseEvent('dblclick', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
     this.nodes[index].dispatchEvent(clickEvent);
   },
 
