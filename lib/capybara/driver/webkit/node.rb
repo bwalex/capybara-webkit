@@ -16,6 +16,10 @@ class Capybara::Driver::Webkit
       end
     end
 
+    def get_computed_style(name)
+      invoke("getComputedStyle", name)
+    end
+
     def value
       if multiple_select?
         self.find(".//option").select(&:selected?).map(&:value)
@@ -43,6 +47,10 @@ class Capybara::Driver::Webkit
 
     def click
       invoke "click"
+    end
+
+    def dblclick
+      invoke "dblclick"
     end
 
     def drag_to(element)
