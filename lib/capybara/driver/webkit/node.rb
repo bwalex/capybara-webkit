@@ -17,7 +17,9 @@ class Capybara::Driver::Webkit
     end
 
     def get_computed_style(name)
-      invoke("getComputedStyle", name)
+      value = invoke("getComputedStyle", name)
+      puts "Value: inside cap-webkit #{value}"
+      return value
     end
 
     def value
