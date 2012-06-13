@@ -66,7 +66,7 @@ Capybara = {
     console.log(m.getPropertyValue(name));
     console.log(m.cssText);
     console.log("Items: " + m.length);
-    return window.getComputedStyle(this.nodes[index]).getPropertyValue(name);
+    return window.getComputedStyle(this.nodes[index])[name];
   },
 
   path: function(index) {
